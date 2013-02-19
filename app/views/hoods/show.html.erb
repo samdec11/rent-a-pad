@@ -1,0 +1,15 @@
+<div class='row'>
+  <div class='twelve columns'>
+    <h1><%= @hood.name %></h1>
+    <%= image_tag @hood.image, :class=>'maps' %>
+    <h3>Demographics</h3>
+    <h6>Provided by <%= link_to 'Zillow', 'http://www.zillow.com', :target=>'_blank' %></h6>
+    <ul>
+      <li>Median Household Income: <%= number_to_currency(@income) %></li>
+      <li>Median Age: <%= @age %></li>
+      <li>Average Household Size: <%= number_with_precision(@size, :precision=>2) %></li>
+      <li>Average Commute Time: <%= @commute.to_i.round %> minutes </li>
+    </ul>
+    <%= link_to 'Back', hoods_path %>
+  </div>
+</div>

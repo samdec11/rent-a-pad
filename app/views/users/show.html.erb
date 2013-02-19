@@ -1,0 +1,42 @@
+<div class='row'>
+  <div class='twelve columns'>
+    <p id="notice"><%= notice %></p>
+
+    <ul>
+      <li>
+      <b>Name:</b>
+      <%= @user.name %>
+      </li>
+      <li>
+      <b>Age:</b>
+      <%= @user.age %>
+      </li>
+      <li>
+      <b>Gender:</b>
+      <%= @user.gender %>
+      </li>
+      <li>
+      <b>Contact:</b>
+      <%= link_to @user.email %>
+      </li>
+      <li>
+      <b>Maximum Rent:</b>
+      <%= number_to_currency(@user.max_rent) %>
+      </li>
+      <li>
+        <b>Desired Neighborhoods:</b>
+        <% @user.hoods.each do |hood| %>
+          <ul>
+            <li><%= hood.name %></li>
+          </ul>
+        <% end %>
+      </li>
+    </ul>
+      <%= image_tag(@user.image, :class=>'show') %>
+
+
+
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Welcome to Rent-A-Pad</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <!-- Nav -->
+  <div class="row">
+      <div class="twelve columns">
+
+      <nav class="top-bar">
+        <ul class="top-bar">
+          <li class="name"><h1><%= link_to 'R-A-P', root_path %></h1></li>
+          <li class="toggle-topbar"><a href="#"></a></li>
+        </ul>
+
+        <section>
+          <ul class="left">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to 'FAQ', faq_path %></li>
+          </ul>
+
+          <ul class="right">
+            <li class="has-dropdown">
+              <%= link_to 'Neighborhoods', hoods_path %>
+
+              <ul class="dropdown">
+                <li><%= link_to 'All', hoods_path %></li>
+                <% Hood.find(:all, :order=>'name').each do |hood| %>
+                <li><%= link_to hood.name, hood %></li>
+                <% end %>
+              </ul>
+          </ul>
+        </section>
+      </nav>
+
+      </div>
+    </div>
+  <!-- End Nav -->
+  <%= yield %>
+  <!-- Footer -->
+
+  <footer class="row">
+    <div class="twelve columns">
+      <hr />
+      <div class="row">
+        <div class="six columns">
+          <p>&copy; SMM</p>
+        </div>
+        <div class="six columns">
+          <ul class="link-list right">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to 'FAQ', faq_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Initialize JS Plugins -->
+  <script src="assets/foundation/javascripts/app.js"></script>
+</body>
+</html>

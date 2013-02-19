@@ -1,0 +1,39 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :max_rent, 'Maximum Monthly Rent Payment'  %>
+    <%= f.text_field :max_rent%>
+    <%= f.label :image %>
+    <%= f.text_field :image %>
+  </div>
+  <div class='checkboxes'>
+    <% Hood.order(:name).each do |hood| %>
+      <ul>
+      <li><%= hood.name %>
+      <%= check_box_tag 'user[hood_ids][]', hood.id, hood.in?(@user.hoods.to_a) %></li>
+      </ul>
+    <% end %>
+    </div>
+    <%= f.submit %>
+<% end %>

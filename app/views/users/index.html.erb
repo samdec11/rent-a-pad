@@ -1,0 +1,97 @@
+<!-- <h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<*% @users.each do |user| %>
+  <tr>
+    <td><*%= user.name %></td>
+    <td><*%= link_to 'Show', user %></td>
+    <td><*%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><*%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<*% end %>
+</table>
+
+<br />
+
+<(%= link_to 'New User', new_user_path %> -->
+     <div class="row">
+
+  <!-- Side Bar -->
+
+        <div class="four mobile-four columns">
+          <% if @user %>
+          <%= image_tag @user.image %>
+
+          <div class="hide-for-small panel">
+            <h3><%= link_to @user.name, user_path(@user.id) %></h3>
+            <h5 class="subheader">
+              <ul>
+                <li><%= @user.age %></li>
+                <li><%= @user.gender %></li>
+                <li><%= @user.email %></li>
+                <li><%= number_to_currency(@user.max_rent) %></li>
+              </ul>
+            </h5>
+          </div>
+          <% end %>
+
+        </div>
+
+    <!-- End Side Bar -->
+
+
+    <!-- Thumbnails -->
+
+        <div class="eight columns">
+          <div class="row">
+            <% @users.each do |user| %>
+              <% if @user.nil? || user.id != @user.id %>
+                <div class="four mobile-two columns">
+                  <%= image_tag user.image, :class=>'thumbs' %>
+
+                  <div class="panel">
+                    <h5><%=link_to user.name, user %></h5>
+                    <h6 class="subheader"><%= user.age %></h6>
+                    <h6 class="subheader"><%= user.gender %></h6>
+                    <h6 class="subheader"><%= user.email %></h6>
+                    <h6 class="subheader"><%= number_to_currency(user.max_rent) %></h6>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
+    <!-- End Thumbnails -->
+
+
+    <!-- Managed By -->
+
+            <div class="twelve columns">
+              <div class="panel">
+                <div class="row">
+
+                  <div class="two mobile-two columns">
+                    <img src="http://placehold.it/300x300&text=Site Owner">
+                  </div>
+
+                  <div class="ten mobile-two columns">
+                    <strong>This Site Is Managed By<hr/></strong>
+
+                    Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+    <!-- End Managed By -->
+
+          </div>
+        </div>
+      </div>

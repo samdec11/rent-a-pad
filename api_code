@@ -1,0 +1,1 @@
+HTTParty.get("http://www.zillow.com/webservice/GetDemographics.htm?zws-id=X1-ZWz1di911fapzf_4ixyf&state=<STATE>&city=<CITY>&neighborhood=<NEIGHBORHOOD>")

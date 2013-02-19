@@ -1,0 +1,12 @@
+<div class='row'>
+  <div class='four columns'>
+    <% @hoods.each do |hood| %>
+    <ul>
+      <li><%= link_to hood.name.gsub("_", " "), hood %></li>
+    </ul>
+
+    <% end %>
+
+  </div>
+  <%= image_tag 'maps/neighborhood_map.jpg', :class=>'maps' %>
+</div>

@@ -1,0 +1,97 @@
+/* Artfully masterminded by ZURB  */
+
+/* --------------------------------------------------
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Login
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+ol {
+  list-style: decimal;
+  font-weight: bold;
+}
+
+.forms {
+  width: 283px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+
+/* -----------------------------------------
+   Login
+----------------------------------------- */
+
+.register {
+  float: left;
+  margin-top: 15px;
+}
+
+#login {
+  width: 283px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  background: #fff;
+  opacity: 0.8;
+  padding-top: 0px;
+  position: relative;
+  top: 30px;
+}
+
+#welcome {
+  float: right;
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  z-index: -1;
+  width: 910px;
+  height: auto;
+}
+
+#hello {
+  min-height: 359px;
+}
+
+/* -----------------------------------------
+   Users
+----------------------------------------- */
+.thumbs {
+  width: 179px;
+  height: 216px;
+}
+
+/* -----------------------------------------
+   User Show
+----------------------------------------- */
+.show {
+  width: 371px;
+  height: 402px;
+  float: right;
+  position: relative;
+  bottom: 127px;
+}
+
+/* -----------------------------------------
+   Hoods
+----------------------------------------- */
+.maps {
+  float: right;
+}
+
+.field input {
+  width: 250px;
+}
+
+.checkboxes  {
+  float: right;
+  position: relative;
+  bottom: 400px;
+}
