@@ -2,18 +2,22 @@
 #
 # Table name: users
 #
-#  id                  :integer          not null, primary key
-#  name                :string(255)
-#  age                 :integer
-#  gender              :string(255)
-#  email               :string(255)
-#  max_rent            :decimal(, )
-#  image               :text
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  username            :string(255)      default(""), not null
-#  encrypted_password  :string(255)      default(""), not null
-#  remember_created_at :datetime
+#  id              :integer          not null, primary key
+#  username        :string(255)
+#  password_digest :string(255)
+#  name            :string(255)
+#  age             :integer
+#  gender          :string(255)
+#  email           :string(255)
+#  image           :text
+#  description     :text
+#  likes           :text
+#  dislikes        :text
+#  pets            :string(255)
+#  roommate        :text
+#  max_rent        :decimal(, )
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

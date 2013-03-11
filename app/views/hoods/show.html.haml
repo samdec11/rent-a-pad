@@ -1,0 +1,34 @@
+.row
+  .seven.columns
+    %h1= @hood.name
+    = image_tag @hood.image, :class=>'maps'
+    %br
+    %br
+    = link_to 'Back', hoods_path
+  .five.columns
+    %h3 Demographics
+    %h6
+      Provided by
+      = link_to 'Zillow', 'http://www.zillow.com', :target=>'_blank'
+    %ul
+      %li
+        = "Median Household Income: #{number_to_currency(@income)}"
+      %li
+        = "Median Age: #{@age}"
+      %li
+        = "Average Household Size: #{number_with_precision(@size, :precision=>2)}"
+      %li
+        = "Average Commute Time: #{@commute.to_i.round} minutes"
+    - if @hood.users.any?
+      %h5 R-A-P users who would like to live here:
+      %ul
+        - @hood.users.order(:name).each do |user|
+          %li
+            = link_to user.name, user
+    %br
+    %br
+    = image_tag ('arrow_left.png')
+    = link_to "#{@prior.name}", @prior
+    |
+    = link_to "#{@next.name}", @next
+    = image_tag 'arrow_right.png'

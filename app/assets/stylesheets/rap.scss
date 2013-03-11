@@ -1,0 +1,123 @@
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+body {
+  background: url('bedge_grunge.png')
+}
+
+.row {
+  background-color: #fff;
+  -webkit-box-shadow: 10px 10px 30px #888;
+}
+
+ol {
+  list-style: decimal;
+  font-weight: bold;
+}
+
+.forms {
+  width: 283px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+.hide {
+  display: none;
+}
+
+/*img {
+  border: 1px solid #e6e6e6;
+}*/
+
+.top-bar {
+  z-index: 1;
+}
+
+.clear {
+  clear: both;
+}
+/* -----------------------------------------
+   Login
+----------------------------------------- */
+
+#hello {
+  min-height: 359px;
+
+  h1 {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+#home_pic {
+  opacity: 0.5;
+  background-image: url('fun.jpg');
+  min-height: 359px;
+  background-size: cover;
+  position: absolute;
+  width: 910px;
+}
+
+#navbar {
+  width: 80%;
+  height: 23px;
+
+  ul { list-style-type: none; }
+  li {
+    float: left;
+    a { font-weight: bold; }
+  }
+}
+
+/* -----------------------------------------
+   Users
+----------------------------------------- */
+.thumbs {
+  width: 179px;
+  height: 216px;
+  background-size: cover;
+}
+
+.user_pic {
+  height: 300px;
+  background-size: cover;
+}
+
+/* -----------------------------------------
+   User Show
+----------------------------------------- */
+.show {
+  width: 371px;
+  height: 402px;
+  background-size: cover;
+  float: right;
+  border: 1px solid #e6e6e6;
+}
+
+/* -----------------------------------------
+   Hoods
+----------------------------------------- */
+#hood_links li:hover {
+  background-color: #ddd;
+}
+
+#main_map {
+  position: relative;
+  bottom: 35px;
+  border: none;
+}
+
+.field input {
+  width: 250px;
+}
+
+.checkboxes {
+  float: left;
+  line-height: 25px;
+}
+
+.hood_pics {
+  position: fixed;
+  border: none;
+}

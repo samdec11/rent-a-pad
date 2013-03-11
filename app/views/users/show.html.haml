@@ -1,0 +1,31 @@
+.row
+  .six.columns
+    %h3 About Me
+    %ul
+      %li
+        %b Name:
+        = @user.name
+      %li
+        %b Age:
+        = @user.age
+      %li
+        %b Gender:
+        = @user.gender
+      %li
+        %b Contact:
+        = link_to @user.email
+      %li
+        %b Maximum Rent:
+        = number_to_currency(@user.max_rent)
+      %li
+        %b Desired Neighborhoods:
+        - @user.hoods.each do |hood|
+          %ul
+            %li= hood.name
+      - if @user.id == @auth.id
+        = link_to 'Edit', edit_user_path(@user)
+        |
+      = link_to 'Back', users_path
+  .six.columns
+    .show{:style => "background-image:url('#{asset_path @user.image}')"}
+

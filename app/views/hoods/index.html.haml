@@ -1,0 +1,11 @@
+.row
+  .four.columns
+    %ul#hood_links
+      - @hoods.each do |hood|
+        %li
+          = link_to hood.name.gsub("_", " "), hood
+          = image_tag hood.image, :class => 'hide'
+        %br
+  .eight.columns
+    #map
+      = image_tag 'maps/neighborhood_map.jpg', :id=>'main_map'

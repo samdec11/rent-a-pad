@@ -5,6 +5,8 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'httparty'
 gem 'nokogiri'
+gem 'haml'
+gem 'bcrypt-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
