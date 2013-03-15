@@ -12,8 +12,37 @@
         %b Gender:
         = @user.gender
       %li
-        %b Contact:
-        = link_to @user.email
+        %b Description:
+        = @user.description
+      %li
+        %b Occupation:
+        = @user.occupation
+      %li
+        %b Sleep Hours:
+        - case @user.sleep_hours
+          - when 1
+            Early
+          - when 2
+            Late
+          - when 3
+            Nocturnal
+      %li
+        %b Hosts friends:
+        - case @user.sociability
+          - when 0
+            Never
+          - when 1
+            Rarely
+          - when 2
+            Sometimes
+          - when 3
+            Often
+      %li
+        %b Smoking habits:
+        = @user.is_smoker == true ? "Smoker" : "Non-smoker"
+      %li
+        %b Pets:
+        = @user.pets
       %li
         %b Maximum Rent:
         = number_to_currency(@user.max_rent)
@@ -21,11 +50,49 @@
         %b Desired Neighborhoods:
         - @user.hoods.each do |hood|
           %ul
-            %li= hood.name
-      - if @user.id == @auth.id
-        = link_to 'Edit', edit_user_path(@user)
-        |
-      = link_to 'Back', users_path
+            %li= link_to hood.name, hood
+
+    %h3 My Roommate Search
+    %ul
+      - if @user.roommate[:min_age].present?
+        %li
+          %b Age Minimum:
+          = @user.roommate[:min_age]
+      - if @user.roommate[:max_age].present?
+        %li
+          %b Age Maximum:
+          = @user.roommate[:max_age]
+      - if @user.roommate[:gender].present?
+        %li
+          %b Gender:
+          = @user.roommate[:gender]
+      - if @user.roommate[:is_smoker].present?
+        %li
+          %b Smoking habits:
+          = @user.roommate[:is_smoker]
+      - if @user.roommate[:employed].present?
+        %li
+          %b Employed:
+          = @user.roommate[:employed]
+    - if @user.id == @auth.id
+      = link_to 'Edit', edit_user_path(@user)
+      |
+    = link_to 'Back', users_path
   .six.columns
     .show{:style => "background-image:url('#{asset_path @user.image}')"}
+    .clear
+    - if @user.id != @auth.id
+      %a{:"data-reveal-id" =>"user_#{@user.id}"}
+        .mail_pic
+.reveal-modal[@user]
+  = form_tag "/messages", :remote => true do
+    %h4= "Message to #{@user.name}"
+    = label_tag 'subject'
+    = text_field_tag 'subject', nil, :autofocus => true
+    = label_tag 'body', 'Message Body'
+    = text_area_tag 'body'
+    = hidden_field_tag 'contact_id', @user.id
+    = hidden_field_tag 'user_id', @auth.id
+    = submit_tag nil, :class=>"button radial messages"
+  %a.close-reveal-modal &#215;
 

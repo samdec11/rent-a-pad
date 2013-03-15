@@ -11,8 +11,11 @@
 #  email           :string(255)
 #  image           :text
 #  description     :text
-#  likes           :text
-#  dislikes        :text
+#  occupation      :string(255)
+#  sociability     :integer
+#  sleep_hours     :integer
+#  is_smoker       :boolean
+#  cooks           :string(255)
 #  pets            :string(255)
 #  roommate        :text
 #  max_rent        :decimal(, )
@@ -23,11 +26,17 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :username, :password, :password_confirmation, :name, :age, :gender, :email, :image, :description, :likes, :dislikes, :pets, :roommate, :max_rent
+  attr_accessible :username, :password, :password_confirmation, :name, :age, :gender, :email, :image, :description, :occupation, :sociability, :sleep_hours, :is_smoker, :pets, :roommate, :max_rent
   serialize :roommate, Hash
   has_and_belongs_to_many :hoods
+  has_many :messages
+  has_many :contacts, :through => :messages
   validates :name, :presence => true, :length => {:minimum => 2}
   validates :username, :presence => true, :uniqueness => true
   validates :password, :presence => true
   validates :email, :presence => true, :length => {:minimum => 2}
+
+  def received_messages
+    Message.where(:contact_id => self.id)
+  end
 end

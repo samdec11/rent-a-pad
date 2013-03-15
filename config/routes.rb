@@ -1,5 +1,5 @@
 RentAPad::Application.routes.draw do
-  resources :users, :hoods
+  resources :users, :hoods, :messages
   get '/about' => 'home#about'
   get '/faq' => 'home#faq'
   get '/login' => 'session#new'

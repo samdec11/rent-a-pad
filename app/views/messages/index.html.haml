@@ -1,0 +1,16 @@
+.row
+  .twelve.columns
+    %table
+      %tr
+        %th From
+        %th Subject
+        %th Body
+      - if @messages == []
+        No messages
+      - else
+        - @messages.each do |message|
+        - sender = User.where(:id => message.user_id).first
+          %tr
+            %td= link_to(sender.name, user_path(sender))
+            %td= message.subject
+            %td= message.body

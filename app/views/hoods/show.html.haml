@@ -20,11 +20,14 @@
       %li
         = "Average Commute Time: #{@commute.to_i.round} minutes"
     - if @hood.users.any?
-      %h5 R-A-P users who would like to live here:
-      %ul
-        - @hood.users.order(:name).each do |user|
-          %li
-            = link_to user.name, user
+      - if @auth.present?
+        %h5 R-A-P users who would like to live here:
+        %ul
+          - @hood.users.order(:name).each do |user|
+            %li
+              = link_to user.name, user
+      - else
+        %h5= "#{@hood.users.count} R-A-P users would like to live here."
     %br
     %br
     = image_tag ('arrow_left.png')

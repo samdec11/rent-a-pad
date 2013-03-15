@@ -11,19 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311173113) do
+ActiveRecord::Schema.define(:version => 20130312042748) do
 
   create_table "hoods", :force => true do |t|
     t.string   "name"
     t.text     "image"
+    t.integer  "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "location_id"
   end
 
   create_table "hoods_users", :force => true do |t|
     t.integer "hood_id"
     t.integer "user_id"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -35,8 +44,11 @@ ActiveRecord::Schema.define(:version => 20130311173113) do
     t.string   "email"
     t.text     "image"
     t.text     "description"
-    t.text     "likes"
-    t.text     "dislikes"
+    t.string   "occupation"
+    t.integer  "sociability"
+    t.integer  "sleep_hours"
+    t.boolean  "is_smoker"
+    t.string   "cooks"
     t.string   "pets"
     t.text     "roommate"
     t.decimal  "max_rent"

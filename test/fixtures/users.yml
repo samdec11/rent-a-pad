@@ -11,8 +11,11 @@
 #  email           :string(255)
 #  image           :text
 #  description     :text
-#  likes           :text
-#  dislikes        :text
+#  occupation      :string(255)
+#  sociability     :integer
+#  sleep_hours     :integer
+#  is_smoker       :boolean
+#  cooks           :string(255)
 #  pets            :string(255)
 #  roommate        :text
 #  max_rent        :decimal(, )

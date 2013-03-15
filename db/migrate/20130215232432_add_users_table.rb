@@ -9,8 +9,11 @@ class AddUsersTable < ActiveRecord::Migration
       t.string :email
       t.text :image
       t.text :description
-      t.text :likes
-      t.text :dislikes
+      t.string :occupation
+      t.integer :sociability
+      t.integer :sleep_hours
+      t.boolean :is_smoker
+      t.string :cooks
       t.string :pets
       t.text :roommate
       t.decimal :max_rent

@@ -3,3 +3,15 @@
     %h1 Welcome to Rent-A-Pad!
     #home_pic
     #login
+    #home_links
+      = link_to('Create Account', new_user_path, :class => 'large button radius success', :id =>'account_button')
+      = link_to('Login', '#', :class => 'large button radius', :id => 'login_button', :"data-reveal-id" =>'modal')
+#modal.reveal-modal{:class => "small"}
+  %h2 Login
+  = form_tag '/login' do
+    = label_tag 'username'
+    = text_field_tag 'username', nil, :autofocus => true
+    = label_tag 'password'
+    = password_field_tag 'password'
+    = submit_tag 'Login to Rent-A-Pad', :class => 'button radius small'
+  %a.close-reveal-modal ×

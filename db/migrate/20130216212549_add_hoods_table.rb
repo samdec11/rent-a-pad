@@ -3,6 +3,7 @@ class AddHoodsTable < ActiveRecord::Migration
     create_table :hoods do |t|
       t.string :name
       t.text :image
+      t.integer :location_id
       t.timestamps
     end
   end
