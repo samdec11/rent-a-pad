@@ -1,19 +1,19 @@
 .row
-  .four.mobile-four.columns
-    %a{:href => user_path(@auth)}/
-    .user_pic{:style => "background-image:url(#{asset_path @auth.image})"}
-    .hide-for-small.panel
-      %h3= link_to @auth.name, user_path(@auth.id)
-      %h5.subheader
-      %ul
-        %li= @auth.age
-        %li= @auth.gender
-        %li= number_to_currency(@auth.max_rent)
-  .eight.columns
+  / .four.mobile-four.columns
+  /   %a{:href => user_path(@auth)}/
+  /   .user_pic{:style => "background-image:url(#{asset_path @auth.image})"}
+  /   .hide-for-small.panel
+  /     %h3= link_to @auth.name, user_path(@auth.id)
+  /     %h5.subheader
+  /     %ul
+  /       %li= @auth.age
+  /       %li= @auth.gender
+  /       %li= number_to_currency(@auth.max_rent)
+  .twelve.columns
     .row
       - @users.each do |user|
         - if user.id != @auth.id
-          .four.mobile-two.columns
+          .three.mobile-one.columns
             %a{:href => user_path(user)}/
             .thumbs{:style => "background-image:url('#{asset_path user.image}')"}
             .panel

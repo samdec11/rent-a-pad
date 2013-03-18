@@ -82,8 +82,13 @@
     .show{:style => "background-image:url('#{asset_path @user.image}')"}
     .clear
     - if @user.id != @auth.id
-      %a{:"data-reveal-id" =>"user_#{@user.id}"}
-        .mail_pic
+      %h4
+        %table
+          %tr
+            %td Message me!
+            %td
+              %a{:"data-reveal-id" =>"user_#{@user.id}"}
+                .mail_pic_show
 .reveal-modal[@user]
   = form_tag "/messages", :remote => true do
     %h4= "Message to #{@user.name}"

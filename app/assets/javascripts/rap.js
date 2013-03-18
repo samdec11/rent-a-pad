@@ -9,6 +9,7 @@ $(function() {
   $('.checkboxes').each(show_this);
   $('.messages').click(hide_modal);
   $('.hood_name').on('click', toggle_checkbox);
+  $('#inbox a').each(show_sender);
 });
 
 function show_map() {
@@ -26,7 +27,6 @@ function reshow_map() {
 }
 
 function show_this() {
-  // $('.ui-tooltip').remove();
   this_map = $(this).children('img').attr('src');
   var root = "<img src='" + this_map + "'>";
   $(this).tooltip({ content: root });
@@ -39,4 +39,10 @@ function hide_modal() {
 function toggle_checkbox() {
   checkbox = $(this).siblings('input');
   checkbox.attr("checked", !checkbox.attr("checked"));
+}
+
+function show_sender() {
+  var image = $(this).parent().siblings('.hide').children().first().attr('src');
+  var root = "<img src='" + image + "'>";
+  $(this).tooltip({ content: root });
 }

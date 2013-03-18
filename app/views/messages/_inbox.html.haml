@@ -1,0 +1,35 @@
+%table#inbox
+  %tr
+    %th From
+    %th Subject
+    %th Body
+    %th Reply
+    %th Delete
+  - @messages.each do |message|
+    - sender = User.where(:id => message.user_id).first
+    %tr
+      %td= link_to(sender.name, user_path(sender), :title => sender)
+      %td.hide= image_tag asset_path sender.image
+      %td= message.subject
+      %td= message.body
+      %td
+        %a{:"data-reveal-id" =>"user_#{sender.id}"}
+          = image_tag 'comments.png', :class => 'inbox_links'
+      %td
+        %a{:"data-reveal-id" => "message_#{message.id}"}
+          = image_tag 'cross.png', :class => 'inbox_links'
+    .reveal-modal[sender]
+      = form_tag "/messages", :remote => true do
+        %h4= "Message to #{sender.name}"
+        = label_tag 'subject'
+        = text_field_tag 'subject', "RE: #{message.subject}", :autofocus => true
+        = label_tag 'body', 'Message Body'
+        = text_area_tag 'body'
+        = hidden_field_tag 'contact_id', sender.id
+        = hidden_field_tag 'user_id', @auth.id
+        = submit_tag nil, :class=>"button radial messages"
+      %a.close-reveal-modal &#215;
+    .reveal-modal[message]
+      %h4 Are you sure you want to delete this message?
+      =button_to_function('Cancel', 'cancel_delete()', :class => 'button radial')
+      %a.close-reveal-modal &#215;
