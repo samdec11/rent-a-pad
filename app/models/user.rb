@@ -25,7 +25,7 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :password, :password_confirmation, :name, :age, :gender, :email, :image, :description, :occupation, :sociability, :sleep_hours, :is_smoker, :pets, :roommate, :max_rent
+  attr_accessible :password, :password_confirmation, :name, :age, :gender, :email, :image, :description, :occupation, :sociability, :sleep_hours, :is_smoker, :pets, :roommate, :max_rent, :hood_ids
   serialize :roommate, Hash
   has_and_belongs_to_many :hoods
   has_many :messages
