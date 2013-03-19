@@ -9,8 +9,8 @@
 #modal.reveal-modal{:class => "small"}
   %h2 Login
   = form_tag '/login' do
-    = label_tag 'username'
-    = text_field_tag 'username', nil, :autofocus => true
+    = label_tag 'email'
+    = text_field_tag 'email', nil, :autofocus => true
     = label_tag 'password'
     = password_field_tag 'password'
     = submit_tag 'Login to Rent-A-Pad', :class => 'button radius small'
