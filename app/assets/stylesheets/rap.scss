@@ -179,6 +179,7 @@ h4 table {
 ----------------------------------------- */
 th {
   font-weight: bolder;
+  text-align: left;
 }
 
 #inbox {
@@ -187,4 +188,14 @@ th {
 
 .inbox_links {
   cursor: pointer;
+}
+
+.delete_button {
+  position: relative;
+  bottom: 5px;
+  float: right;
+}
+
+.cancel_button {
+  float: left;
 }

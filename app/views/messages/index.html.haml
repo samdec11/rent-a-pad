@@ -1,7 +1,4 @@
 .row
   .twelve.columns
-    - if @messages == []
-      No messages
-    - else
-      #table
-        = render :partial => 'inbox'
+    #table
+      = render :partial => 'inbox'
