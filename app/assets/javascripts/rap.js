@@ -10,6 +10,7 @@ $(function() {
   $('.messages').click(hide_modal);
   $('.hood_name').on('click', toggle_checkbox);
   $('#inbox a').each(show_sender);
+  $('.hood_name').each(change_hood_name_colors);
 });
 
 function show_map() {
@@ -37,8 +38,24 @@ function hide_modal() {
 }
 
 function toggle_checkbox() {
-  checkbox = $(this).siblings('input');
-  checkbox.attr("checked", !checkbox.attr("checked"));
+  checkbox = $(this).siblings().first().children().first();
+  checkbox.prop("checked", !checkbox.prop("checked"));
+  if(checkbox.prop('checked') === true) {
+    $(this).css({'color':'red'});
+  }
+  else {
+    $(this).css({'color':'black'});
+  }
+}
+
+function change_hood_name_colors() {
+  checkbox = $(this).siblings().first().children().first();
+  if(checkbox.prop('checked') === true) {
+    $(this).css({'color':'red'});
+  }
+  else {
+    $(this).css({'color':'black'});
+  }
 }
 
 function show_sender() {

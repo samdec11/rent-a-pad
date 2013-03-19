@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312042748) do
+ActiveRecord::Schema.define(:version => 20130319041924) do
 
   create_table "hoods", :force => true do |t|
     t.string   "name"
@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(:version => 20130312042748) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
     t.string   "password_digest"
     t.string   "name"
     t.integer  "age"

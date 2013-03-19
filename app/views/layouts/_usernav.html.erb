@@ -1,7 +1,8 @@
 <li class="has-dropdown">
     <a href='#'><div id='navpic' style="background-image:url('<%= asset_path @auth.image %>')"></div></a>
   <ul class="dropdown">
-    <li><%= link_to('Profile', user_path(@auth)) %></li>
+    <li><%= link_to('See Profile', user_path(@auth)) %></li>
+    <li><%= link_to('Edit Profile', edit_user_path(@auth)) %></li>
     <li><%= link_to('Logout', login_path, :method => :delete) %></li>
   </ul>
 </li>

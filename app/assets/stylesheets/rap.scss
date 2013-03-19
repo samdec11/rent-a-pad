@@ -8,6 +8,8 @@ body {
 .row {
   background-color: #fff;
   -webkit-box-shadow: 10px 10px 30px #888;
+  -moz-box-shadow: 10px 10px 30px #888;
+  box-shadow: 10px 10px 30px #888;
 }
 
 ol {
@@ -26,10 +28,6 @@ ol {
   display: none;
 }
 
-/*img {
-  border: 1px solid #e6e6e6;
-}*/
-
 .top-bar {
   z-index: 1;
 }
@@ -40,6 +38,8 @@ ol {
 
 #weird_row {
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 #navpic{
@@ -73,7 +73,6 @@ ol {
   min-height: 359px;
 
   h1 {
-    /*position: absolute;*/
     z-index: 1;
   }
 }
@@ -155,7 +154,17 @@ h4 table {
   text-decoration: underline
 }
 
+table td .radios {
+  width: 50px;
+}
 
+#user_description {
+  height: 200px;
+}
+
+.selects {
+  width: 177px;
+}
 /* -----------------------------------------
    Hoods
 ----------------------------------------- */

@@ -1,0 +1,95 @@
+= form_for(@user) do |f|
+  .seven.columns
+    - if @user.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@user.errors.count, "error")
+          prohibited this user from being saved:
+          %ul
+            - @user.errors.full_messages.each do |msg|
+              %li= msg
+    .field
+      %h4 Your details
+      = f.label :email
+      = f.text_field :email, :autofocus => true
+      = f.label :name, 'First Name'
+      = f.text_field :name
+      = f.label :password
+      = f.password_field :password
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+      = f.label :age
+      = f.text_field :age
+      = f.label :gender
+      = f.text_field :gender
+      = f.label :image
+      = f.text_field :image
+      = f.label :description
+      = f.text_area :description
+      = f.label :occupation
+      = f.text_field :occupation
+      = f.label :sleep_hours
+      %table
+        %tr
+          %td
+            = f.label :early
+            = f.radio_button(:sleep_hours, 1, :class =>'radios')
+          %td
+            = f.label :late
+            = f.radio_button(:sleep_hours, 2, :class =>'radios')
+          %td
+            = f.label :nocturnal
+            = f.radio_button(:sleep_hours, 3, :class =>'radios')
+      = f.label :sociability, 'Hosts friends'
+      %table
+        %tr
+          %td
+            = f.label :never
+            = f.radio_button(:sociability, 0, :class => 'radios')
+          %td
+            = f.label :rarely
+            = f.radio_button(:sociability, 1, :class => 'radios')
+          %td
+            = f.label :sometimes
+            = f.radio_button(:sociability, 2, :class => 'radios')
+          %td
+            = f.label :often
+            = f.radio_button(:sociability, 3, :class => 'radios')
+      = f.label :is_smoker, 'Smoking habits'
+      %table
+        %tr
+          %td
+            = f.label :'non-smoker'
+            = f.radio_button(:is_smoker, false, :class => 'radios')
+          %td
+            = f.label :smoker
+            = f.radio_button(:is_smoker, true, :class => 'radios')
+      = f.label :pets
+      = select_tag 'pets', "<option>Have</option><option>Want</option><option>Don't Want</option><option>Don't care</option>".html_safe, :class => 'selects'
+      %br
+      %br
+      = f.label :max_rent, 'Maximum Monthly Rent Payment'
+      = f.text_field :max_rent
+      %h4
+        Your roommate search
+        %small (All fields are optional)
+      = f.label 'roommate[:max_age]', 'Age Maximum'
+      = number_field_tag 'roommate[:max_age]', nil, :min => 18
+      = f.label 'roommate[:min_age]', 'Age Minimum'
+      = number_field_tag 'roommate[:min_age]', nil, :min => 18
+      = f.label 'roommate[:gender]', 'Gender'
+      = select_tag 'roommate[:gender]', "<option></option><option>Male</option><option>Female</option><option>Either</option>".html_safe, :class => 'selects'
+      = f.label 'roommate[:employed]', 'Employed'
+      = select_tag 'roommate[:employed]', "<option></option><option>True</option><option>False</option>".html_safe, :class => 'selects'
+  .five.columns
+    %h4
+      %span#neighborhood{:title=>'Neighborhood'}= link_to 'Neighborhood(s)', hoods_path
+      in which you'd like to live
+    %ul
+      - Hood.order(:name).each do |hood|
+        %li.checkboxes{:title=>'checkbox'}
+          .hide= check_box_tag 'user[hood_ids][]', hood.id, hood.in?(@user.hoods.to_a)
+          %span.hood_name
+            = "#{hood.name} /"
+          = image_tag hood.image, :class => 'hide'
+  = f.submit nil, :class => 'button success radius tiny'
