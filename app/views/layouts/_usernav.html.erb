@@ -1,3 +1,7 @@
 <li class="has-dropdown">
-  <!-- <*%= link_to((image_tag asset_path @auth.image), @auth ) %> -->
-<li><%= link_to('Logout', login_path, :method => :delete) %></li>
+    <a href='#'><div id='navpic' style="background-image:url('<%= asset_path @auth.image %>')"></div></a>
+  <ul class="dropdown">
+    <li><%= link_to('Profile', user_path(@auth)) %></li>
+    <li><%= link_to('Logout', login_path, :method => :delete) %></li>
+  </ul>
+</li>
