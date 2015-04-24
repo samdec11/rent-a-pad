@@ -31,7 +31,7 @@
     %br
     %br
     = image_tag ('arrow_left.png')
-    = link_to "#{@prior.name}", @prior
+    = link_to "#{@hood.prior.name}", @hood.prior
     |
-    = link_to "#{@next.name}", @next
+    = link_to "#{@hood.next.name}", @hood.next
     = image_tag 'arrow_right.png'

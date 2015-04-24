@@ -4,9 +4,6 @@ class HoodsController < ApplicationController
   end
   def show
     @hood = Hood.find(params[:id])
-    # refactor this
-    @prior = Hood.find_by(position: (@hood.position) -1) || Hood.find_by(position: 34)
-    @next = Hood.find_by(position: (@hood.position) +1) || Hood.find_by(position: 1)
     populate_demographics_info
   end
 
