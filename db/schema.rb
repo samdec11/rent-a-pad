@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130319041924) do
+ActiveRecord::Schema.define(version: 20150424024118) do
 
   create_table "hoods", force: true do |t|
     t.string   "name"
     t.text     "image"
-    t.integer  "location_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
