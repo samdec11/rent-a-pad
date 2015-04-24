@@ -13,5 +13,5 @@
 
 class Message < ActiveRecord::Base
   belongs_to :user
-  belongs_to :contact, :class_name => 'User', :inverse_of => :messages
+  belongs_to :contact, class_name: 'User', inverse_of: :messages
 end

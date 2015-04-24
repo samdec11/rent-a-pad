@@ -1,0 +1,7 @@
+%li.has-dropdown
+  %a{href: '#'}
+    #navpic{style: "background-image:url('#{asset_path @auth.image}')"}
+  %ul.dropdown
+    %li= link_to 'See Profile', user_path(@auth)
+    %li= link_to 'Edit Profile', edit_user_path(@auth)
+    %li= link_to 'Logout', login_path, method: :delete

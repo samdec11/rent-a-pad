@@ -28,11 +28,11 @@ class User < ActiveRecord::Base
   serialize :roommate, Hash
   has_and_belongs_to_many :hoods
   has_many :messages
-  has_many :contacts, :through => :messages
-  validates :name, :presence => true, :length => {:minimum => 2}
-  validates :email, :presence => true, :length => {:minimum => 2}
+  has_many :contacts, through: :messages
+  validates :name, presence: true, length: {minimum: 2}
+  validates :email, presence: true, length: {minimum: 2}
 
   def received_messages
-    Message.where(:contact_id => self.id)
+    Message.where(contact_id: id)
   end
 end
