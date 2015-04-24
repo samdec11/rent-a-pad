@@ -12,7 +12,6 @@
 #
 
 class Message < ActiveRecord::Base
-  attr_accessible :subject, :body, :contact_id, :user_id
   belongs_to :user
   belongs_to :contact, :class_name => 'User', :inverse_of => :messages
 end

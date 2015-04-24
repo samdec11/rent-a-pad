@@ -1,8 +1,8 @@
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: rent-a-pad_development
   pool: 5
   host: localhost
-  username: Sean
-  password:
+  username: root
+  secure_auth: false

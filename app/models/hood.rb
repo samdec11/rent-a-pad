@@ -11,6 +11,5 @@
 #
 
 class Hood < ActiveRecord::Base
-  attr_accessible :name, :image, :location_id
   has_and_belongs_to_many :users
 end
